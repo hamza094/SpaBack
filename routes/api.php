@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Links;
+use App\Http\Controllers\ItemController;
 use App\Models\User;
 
 /*
@@ -21,6 +22,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::middleware('auth:sanctum')->resource('/links', Links::class );
+
+Route::apiResource('items',ItemController::class);
 
 Route::get("/profiles/{id}", function ($id) {
     $user = User::find($id);

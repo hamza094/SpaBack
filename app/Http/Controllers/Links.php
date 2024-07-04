@@ -16,7 +16,7 @@ class Links extends Controller
             ->allowedFilters(['full_link', 'short_link'])
             ->allowedSorts('full_link', 'short_link', 'views', "id")
             ->where("user_id", Auth::user()->id)
-            ->paginate($request->get('perPage', 5));
+            ->paginate($request->get('perPage', 1));
         return response()->json($links);
     }
 
